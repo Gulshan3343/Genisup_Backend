@@ -32,7 +32,7 @@ app.use('/api/blogs', require('./Routes/Blogs'));
 app.use('/api/categories', require('./Routes/Category'));
 app.use('/api/admin', require('./Routes/Admin'));
 app.use('/api/career', require('./Routes/Careers'));
-// app.use('/api/formdata', require('./Routes/Formdata'));
+app.use('/api/formdata', require('./Routes/Formdata'));
 
 // Start server
 const PORT = process.env.PORT || 5000;
