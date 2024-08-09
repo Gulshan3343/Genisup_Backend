@@ -62,3 +62,16 @@ exports.updateBlog = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+exports.getBlogById = async (req, res) => {
+    try {
+        const blog = await Blog.findById(req.params.id).populate('category');
+        if (blog) {
+            res.json(blog);
+        } else {
+            res.status(404).json({ message: 'Blog not found' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};

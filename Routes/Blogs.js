@@ -15,4 +15,7 @@ router.put('/:id', authMiddleware.verifyAdmin, BlogController.updateBlog);
 // Delete a blog (admin only)
 router.delete('/:id', authMiddleware.verifyAdmin, BlogController.deleteBlog);
 
+// Get a single blog by ID (public)
+router.get('/:id', BlogController.getBlogById);
+
 module.exports = router;
