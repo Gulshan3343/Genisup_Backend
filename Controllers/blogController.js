@@ -63,6 +63,7 @@ exports.updateBlog = async (req, res) => {
     }
 };
 
+// get blog by Id
 exports.getBlogById = async (req, res) => {
     try {
         const blog = await Blog.findById(req.params.id).populate('category');

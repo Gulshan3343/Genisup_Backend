@@ -15,4 +15,7 @@ router.put('/:id', authMiddleware.verifyAdmin, CareerController.updateCareer);
 // Delete a career (admin only)
 router.delete('/:id', authMiddleware.verifyAdmin, CareerController.deleteCareer);
 
+// Get a single career by ID (public)
+router.get('/:id', CareerController.getCareerById);
+
 module.exports = router;

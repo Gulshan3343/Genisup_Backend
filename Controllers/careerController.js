@@ -62,3 +62,17 @@ exports.updateCareer = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+// get Career by Id
+exports.getCareerById = async (req, res) => {
+    try {
+        const career = await Career.findById(req.params.id).populate('category');
+        if (career) {
+            res.json(career);
+        } else {
+            res.status(404).json({ message: 'Career not found' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
