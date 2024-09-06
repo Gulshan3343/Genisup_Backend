@@ -26,13 +26,19 @@ mongoose.connect('mongodb+srv://gulshan3343:yXOCxB4Llg73NDEN@cluster0.ju1ucgd.mo
       process.exit(1);
     });
   
-
 // Routes
 app.use('/api/blogs', require('./Routes/Blogs'));
 app.use('/api/categories', require('./Routes/Category'));
 app.use('/api/admin', require('./Routes/Admin'));
 app.use('/api/career', require('./Routes/Careers'));
-// app.use('/api/formdata', require('./Routes/Formdata'));
+app.use('/api/contact', require('./Routes/Contact')); // Route for Contact Us
+
+app.get('/', (req, res) => {
+  res.json({ message: "Hello, it's all about Genisup backend" });
+});
+app.get('/api/contact', (req, res) => {
+  res.json({ message: "Hello, it's all about Genisup backend" });
+});
 
 // Start server
 const PORT = process.env.PORT || 5000;
